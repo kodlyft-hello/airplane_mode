@@ -9,7 +9,8 @@
  "field_order": [
   "model",
   "airline",
-  "capacity"
+  "capacity",
+  "initial_audit_completed"
  ],
  "fields": [
   {
@@ -32,6 +33,13 @@
    "label": "Capacity",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "initial_audit_completed",
+   "fieldtype": "Check",
+   "label": "Initial Audit Completed",
+   "permlevel": 1
   }
  ],
  "grid_page_length": 50,
@@ -56,6 +64,34 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "delete": 1,
+   "role": "Fleet Manager"
+  },
+  {
+   "read": 1,
+   "role": "Travel Agent"
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "delete": 1,
+   "role": "Airport Authority Personnel"
+  },
+  {
+   "read": 1,
+   "role": "Flight Crew Member"
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "Airport Authority Personnel",
+   "permlevel": 1
   }
  ],
  "row_format": "Dynamic",

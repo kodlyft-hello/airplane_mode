@@ -63,6 +63,14 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "delete": 1,
+   "role": "Travel Agent",
+   "if_owner": 1
   }
  ],
  "row_format": "Dynamic",

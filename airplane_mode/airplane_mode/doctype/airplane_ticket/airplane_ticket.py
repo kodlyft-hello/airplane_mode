@@ -36,7 +36,15 @@ class AirplaneTicket(Document):
 	# end: auto-generated types
 
 	def before_insert(self):
+		self.validate_flight_capacity()
 		self.seat = generate_seat()
+
+	def validate_flight_capacity(self):
+		airplane = frappe.db.get_value("Airplane Flight", self.flight, "airplane")
+		capacity = frappe.db.get_value("Airplane", airplane, "capacity") or 0
+		booked = frappe.db.count("Airplane Ticket", {"flight": self.flight, "docstatus": ["<", 2]})
+		if booked >= capacity:
+			frappe.throw(f"Flight {self.flight} is full: all {capacity} seats are already booked.")
 
 	def validate(self):
 		seen = set()

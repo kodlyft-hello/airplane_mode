@@ -9,7 +9,8 @@
  "field_order": [
   "founding_year",
   "customer_care_number",
-  "headquarters"
+  "headquarters",
+  "website"
  ],
  "fields": [
   {
@@ -31,6 +32,12 @@
    "in_list_view": 1,
    "label": "Headquarters",
    "reqd": 1
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website",
+   "options": "URL"
   }
  ],
  "grid_page_length": 50,
@@ -60,6 +67,25 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Fleet Manager"
+  },
+  {
+   "read": 1,
+   "role": "Travel Agent"
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "delete": 1,
+   "role": "Airport Authority Personnel"
+  },
+  {
+   "read": 1,
+   "role": "Flight Crew Member"
   }
  ],
  "row_format": "Dynamic",

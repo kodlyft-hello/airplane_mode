@@ -283,3 +283,16 @@ export_python_type_annotations = True
 website_route_rules = [
 	{"from_route": "/flights", "to_route": "Airplane Flight"},
 ]
+
+fixtures = [
+	{
+		"dt": "Role",
+		"filters": [
+			[
+				"name",
+				"in",
+				["Airport Authority Personnel", "Fleet Manager", "Travel Agent", "Flight Crew Member"],
+			]
+		],
+	},
+]

@@ -165,6 +165,28 @@
    "share": 1,
    "submit": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "delete": 1,
+   "role": "Fleet Manager"
+  },
+  {
+   "read": 1,
+   "role": "Travel Agent"
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "delete": 1,
+   "role": "Airport Authority Personnel"
+  },
+  {
+   "read": 1,
+   "role": "Flight Crew Member"
   }
  ],
  "row_format": "Dynamic",
