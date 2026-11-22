@@ -268,7 +268,7 @@ app_license = "mit"
 # on_social_login = "airplane_mode.auth.on_social_login"
 
 # Automatically update python controller files with type annotations for this app.
-# export_python_type_annotations = True
+export_python_type_annotations = True
 
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
@@ -279,3 +279,7 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+
+website_route_rules = [
+	{"from_route": "/flights", "to_route": "Airplane Flight"},
+]

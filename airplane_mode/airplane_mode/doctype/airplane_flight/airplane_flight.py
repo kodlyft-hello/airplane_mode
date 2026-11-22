@@ -1,0 +1,33 @@
+# Copyright (c) 2026, Ali Raza and contributors
+# For license information, please see license.txt
+
+from frappe.website.website_generator import WebsiteGenerator
+
+
+class AirplaneFlight(WebsiteGenerator):
+	# begin: auto-generated types
+	# This code is auto-generated. Do not modify anything in this block.
+
+	from typing import TYPE_CHECKING
+
+	if TYPE_CHECKING:
+		from frappe.types import DF
+
+		airplane: DF.Link
+		amended_from: DF.Link | None
+		date_of_departure: DF.Date
+		destination_airport: DF.Link
+		destination_airport_code: DF.ReadOnly | None
+		duration: DF.Duration
+		source_airport: DF.Link
+		source_airport_code: DF.ReadOnly | None
+		status: DF.Literal["Scheduled", "Completed", "Cancelled"]
+		time_of_departure: DF.Time
+	# end: auto-generated types
+
+	def on_submit(self):
+		self.db_set("status", "Completed")
+
+
+def get_list_context(context=None):
+	return {"title": "Flights", "list_template": "templates/includes/list/list.html"}

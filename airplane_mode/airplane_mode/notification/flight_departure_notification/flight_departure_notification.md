@@ -1,0 +1,1 @@
+<p>Flight {{ doc.name }} ({{ doc.source_airport_code }} to {{ doc.destination_airport_code }}) departs on {{ frappe.utils.format_date(doc.date_of_departure) }} at {{ doc.time_of_departure }}.</p>
