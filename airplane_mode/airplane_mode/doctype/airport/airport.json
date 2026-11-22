@@ -9,7 +9,12 @@
  "field_order": [
   "code",
   "city",
-  "country"
+  "country",
+  "shops_section",
+  "total_shops",
+  "column_break_shops",
+  "available_shops",
+  "occupied_shops"
  ],
  "fields": [
   {
@@ -33,13 +38,49 @@
    "label": "Country",
    "options": "Country",
    "reqd": 1
+  },
+  {
+   "fieldname": "shops_section",
+   "fieldtype": "Section Break",
+   "label": "Shops"
+  },
+  {
+   "fieldname": "total_shops",
+   "fieldtype": "Int",
+   "label": "Total Shops",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "column_break_shops",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "available_shops",
+   "fieldtype": "Int",
+   "label": "Available For Lease",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "occupied_shops",
+   "fieldtype": "Int",
+   "label": "Occupied",
+   "read_only": 1,
+   "default": "0"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "link_display_mode": "Search",
- "links": [],
- "modified": "2026-11-20 23:15:47.912534",
+ "links": [
+  {
+   "group": "Shops",
+   "link_doctype": "Airport Shop",
+   "link_fieldname": "airport"
+  }
+ ],
+ "modified": "2026-11-22 12:32:29.760398",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airport",

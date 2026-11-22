@@ -1,0 +1,29 @@
+meta {
+  name: Create Shop
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/api/resource/Airport Shop
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "airport": "Jaddeh Airline",
+    "shop_number": "G-03",
+    "shop_name": "Coffee Cart",
+    "shop_type": "Stall",
+    "area": 60
+  }
+}
+
+tests {
+  test("creates the shop", function () {
+    expect(res.getStatus()).to.equal(200);
+    expect(res.getBody().data.name).to.equal("Jaddeh Airline-G-03");
+    expect(res.getBody().data.status).to.equal("Available");
+  });
+}

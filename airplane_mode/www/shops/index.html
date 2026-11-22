@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Airport Shops</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic@7.1.0/picnic.min.css">
+	<link rel="stylesheet" href="/assets/airplane_mode/css/shops.css">
+</head>
+<body>
+	<nav>
+		<a href="/shops" class="brand"><span>Airport Shops</span></a>
+		<div class="menu">
+			<a href="/shop-lead/new" class="button">Enquire About A Shop</a>
+		</div>
+	</nav>
+	<main>
+		<h1>Shops For Lease</h1>
+
+		<div class="flex one two-600 four-900 airports">
+			{% for airport in airports %}
+			<div>
+				<article class="card">
+					<header><h3>{{ airport.name }}</h3></header>
+					<footer>
+						<span class="label">{{ airport.total_shops }} shops</span>
+						<span class="label success">{{ airport.available_shops }} available</span>
+						<span class="label warning">{{ airport.occupied_shops }} occupied</span>
+					</footer>
+				</article>
+			</div>
+			{% endfor %}
+		</div>
+
+		<form method="get" class="flex one three-600 filters">
+			<label>
+				<select name="airport">
+					<option value="">All airports</option>
+					{% for airport in airports %}
+					<option value="{{ airport.name }}" {% if airport.name == selected_airport %}selected{% endif %}>{{ airport.name }}</option>
+					{% endfor %}
+				</select>
+			</label>
+			<label>
+				<select name="status">
+					<option value="">Any status</option>
+					{% for s in ["Available", "Occupied"] %}
+					<option value="{{ s }}" {% if s == selected_status %}selected{% endif %}>{{ s }}</option>
+					{% endfor %}
+				</select>
+			</label>
+			<label><button type="submit">Filter</button></label>
+		</form>
+
+		{% if shops %}
+		<table class="primary">
+			<thead>
+				<tr><th>Shop</th><th>Airport</th><th>Type</th><th>Area (sq ft)</th><th>Status</th></tr>
+			</thead>
+			<tbody>
+				{% for shop in shops %}
+				<tr>
+					<td><a href="/shops/{{ shop.name | urlencode }}">{{ shop.shop_number }} · {{ shop.shop_name }}</a></td>
+					<td>{{ shop.airport }}</td>
+					<td>{{ shop.shop_type or "" }}</td>
+					<td>{{ frappe.format(shop.area, {"fieldtype": "Float"}) if shop.area else "" }}</td>
+					<td><span class="label {{ 'success' if shop.status == 'Available' else 'warning' }}">{{ shop.status }}</span></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+		<p>No shops match these filters.</p>
+		{% endif %}
+	</main>
+</body>
+</html>

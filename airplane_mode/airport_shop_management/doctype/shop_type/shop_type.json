@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-11-22 12:35:30.920207",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_type",
+  "enabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_type",
+   "fieldtype": "Data",
+   "label": "Shop Type",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled?",
+   "default": "1",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-22 12:38:05.089708",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Shop Type",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "role": "Airport Authority Personnel"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "field:shop_type",
+ "naming_rule": "By fieldname"
+}

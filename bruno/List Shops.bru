@@ -1,0 +1,26 @@
+meta {
+  name: List Shops
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/api/resource/Airport Shop?fields=["*"]&limit_page_length=0
+  body: none
+  auth: inherit
+}
+
+params:query {
+  fields: ["*"]
+  limit_page_length: 0
+}
+
+tests {
+  test("returns every shop with all fields", function () {
+    expect(res.getStatus()).to.equal(200);
+    const shops = res.getBody().data;
+    expect(shops.length).to.be.greaterThan(0);
+    expect(shops[0]).to.have.property("tenant_name");
+    expect(shops[0]).to.have.property("rent_amount");
+  });
+}

@@ -282,7 +282,12 @@ export_python_type_annotations = True
 
 website_route_rules = [
 	{"from_route": "/flights", "to_route": "Airplane Flight"},
+	{"from_route": "/shops/<shop>", "to_route": "shops/shop"},
 ]
+
+scheduler_events = {
+	"monthly": ["airplane_mode.airport_shop_management.tasks.send_rent_reminders"],
+}
 
 fixtures = [
 	{
@@ -295,4 +300,5 @@ fixtures = [
 			]
 		],
 	},
+	{"dt": "Shop Type"},
 ]

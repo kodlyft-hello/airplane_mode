@@ -1,0 +1,178 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-11-22 12:57:02.545939",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop_details_section",
+  "shop_number",
+  "shop_name",
+  "shop_type",
+  "column_break_shop",
+  "airport",
+  "status",
+  "area",
+  "tenant_section",
+  "tenant_name",
+  "tenant_email",
+  "column_break_tenant",
+  "tenant_phone",
+  "contract_section",
+  "rent_amount",
+  "column_break_contract",
+  "contract_start_date",
+  "contract_expiry_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_details_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Details"
+  },
+  {
+   "fieldname": "shop_number",
+   "fieldtype": "Data",
+   "label": "Shop Number",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "shop_type",
+   "fieldtype": "Link",
+   "label": "Shop Type",
+   "options": "Shop Type",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "column_break_shop",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "airport",
+   "fieldtype": "Link",
+   "label": "Airport",
+   "options": "Airport",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Available\nOccupied",
+   "default": "Available",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "label": "Area (sq ft)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "tenant_section",
+   "fieldtype": "Section Break",
+   "label": "Tenant"
+  },
+  {
+   "fieldname": "tenant_name",
+   "fieldtype": "Data",
+   "label": "Tenant Name"
+  },
+  {
+   "fieldname": "tenant_email",
+   "fieldtype": "Data",
+   "label": "Tenant Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_tenant",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tenant_phone",
+   "fieldtype": "Data",
+   "label": "Tenant Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "contract_section",
+   "fieldtype": "Section Break",
+   "label": "Contract"
+  },
+  {
+   "fieldname": "rent_amount",
+   "fieldtype": "Currency",
+   "label": "Rent Amount (Monthly)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_contract",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract_start_date",
+   "fieldtype": "Date",
+   "label": "Contract Start Date"
+  },
+  {
+   "fieldname": "contract_expiry_date",
+   "fieldtype": "Date",
+   "label": "Contract Expiry Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-22 13:01:55.905546",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Airport Shop",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "role": "Airport Authority Personnel"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "format:{airport}-{shop_number}",
+ "naming_rule": "Expression",
+ "title_field": "shop_name",
+ "show_title_field_in_link": 1,
+ "search_fields": "shop_name,airport,status"
+}

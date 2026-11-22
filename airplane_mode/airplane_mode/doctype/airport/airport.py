@@ -14,9 +14,12 @@ class Airport(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
+		available_shops: DF.Int
 		city: DF.Data
 		code: DF.Data
 		country: DF.Link
+		occupied_shops: DF.Int
+		total_shops: DF.Int
 	# end: auto-generated types
 
 	pass

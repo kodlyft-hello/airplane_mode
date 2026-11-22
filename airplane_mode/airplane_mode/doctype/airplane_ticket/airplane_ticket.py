@@ -28,6 +28,7 @@ class AirplaneTicket(Document):
 		duration_of_flight: DF.Duration
 		flight: DF.Link
 		flight_price: DF.Currency
+		gate_number: DF.Data | None
 		passenger: DF.Link
 		seat: DF.Data | None
 		source_airport_code: DF.ReadOnly | None

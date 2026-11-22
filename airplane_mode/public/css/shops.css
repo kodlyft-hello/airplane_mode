@@ -1,0 +1,30 @@
+main {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 5em 1em 2em;
+}
+
+.airports .card footer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.3em;
+}
+
+.filters {
+	margin: 1em 0;
+}
+
+table {
+	width: 100%;
+}
+
+.detail header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1em;
+}
+
+.detail table th {
+	width: 35%;
+}

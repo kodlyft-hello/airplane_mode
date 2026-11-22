@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ shop.shop_name }} | Airport Shops</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic@7.1.0/picnic.min.css">
+	<link rel="stylesheet" href="/assets/airplane_mode/css/shops.css">
+</head>
+<body>
+	<nav>
+		<a href="/shops" class="brand"><span>Airport Shops</span></a>
+		<div class="menu">
+			<a href="/shops" class="pseudo button">All Shops</a>
+		</div>
+	</nav>
+	<main>
+		<p><a href="/shops">&larr; Back to all shops</a></p>
+		<article class="card detail">
+			<header>
+				<h1>{{ shop.shop_name }}</h1>
+				<span class="label {{ 'success' if shop.status == 'Available' else 'warning' }}">{{ shop.status }}</span>
+			</header>
+			<section>
+				<table>
+					<tbody>
+						<tr><th>Shop Number</th><td>{{ shop.shop_number }}</td></tr>
+						<tr><th>Airport</th><td>{{ shop.airport }}{% if airport %} ({{ airport.code }}, {{ airport.city }}, {{ airport.country }}){% endif %}</td></tr>
+						<tr><th>Shop Type</th><td>{{ shop.shop_type or "" }}</td></tr>
+						<tr><th>Area</th><td>{{ frappe.format(shop.area, {"fieldtype": "Float"}) if shop.area else "" }} sq ft</td></tr>
+						<tr><th>Monthly Rent</th><td>{{ frappe.format(shop.rent_amount, {"fieldtype": "Currency"}) }}</td></tr>
+						{% if shop.status == "Occupied" and shop.contract_expiry_date %}
+						<tr><th>Leased Until</th><td>{{ frappe.format(shop.contract_expiry_date, {"fieldtype": "Date"}) }}</td></tr>
+						{% endif %}
+					</tbody>
+				</table>
+			</section>
+			<footer>
+				<a class="button" href="/shop-lead/new?shop={{ shop.name | urlencode }}">I'm Interested In This Shop</a>
+			</footer>
+		</article>
+	</main>
+</body>
+</html>

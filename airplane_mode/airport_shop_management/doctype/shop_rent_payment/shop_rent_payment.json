@@ -1,0 +1,162 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-11-22 13:09:20.874310",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shop",
+  "shop_name",
+  "airport",
+  "column_break_tenant",
+  "tenant_name",
+  "tenant_email",
+  "payment_section",
+  "rent_month",
+  "amount",
+  "column_break_payment",
+  "payment_date",
+  "mode_of_payment",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop",
+   "fieldtype": "Link",
+   "label": "Shop",
+   "options": "Airport Shop",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name",
+   "fetch_from": "shop.shop_name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "airport",
+   "fieldtype": "Link",
+   "label": "Airport",
+   "options": "Airport",
+   "fetch_from": "shop.airport",
+   "read_only": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "column_break_tenant",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tenant_name",
+   "fieldtype": "Data",
+   "label": "Tenant Name",
+   "fetch_from": "shop.tenant_name",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "tenant_email",
+   "fieldtype": "Data",
+   "label": "Tenant Email",
+   "options": "Email",
+   "fetch_from": "shop.tenant_email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_section",
+   "fieldtype": "Section Break",
+   "label": "Payment"
+  },
+  {
+   "fieldname": "rent_month",
+   "fieldtype": "Date",
+   "label": "Rent For Month",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Any date in the month being paid for"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "reqd": 1,
+   "non_negative": 1,
+   "in_list_view": 1,
+   "fetch_from": "shop.rent_amount",
+   "fetch_if_empty": 1
+  },
+  {
+   "fieldname": "column_break_payment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date",
+   "reqd": 1,
+   "default": "Today"
+  },
+  {
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Select",
+   "label": "Mode of Payment",
+   "options": "Cash\nBank Transfer\nCard\nCheque",
+   "default": "Cash"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Shop Rent Payment",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-11-22 13:12:31.783149",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Shop Rent Payment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "role": "Airport Authority Personnel"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "is_submittable": 1,
+ "autoname": "RENT-.YYYY.-.#####",
+ "naming_rule": "Expression (old style)",
+ "title_field": "shop_name",
+ "default_print_format": "Rent Receipt"
+}

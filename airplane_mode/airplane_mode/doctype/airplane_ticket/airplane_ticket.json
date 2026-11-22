@@ -12,6 +12,7 @@
   "column_break_ywqd",
   "flight",
   "seat",
+  "gate_number",
   "section_break_qeok",
   "source_airport_code",
   "column_break_ckwm",
@@ -155,6 +156,14 @@
   {
    "fieldname": "column_break_cchq",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gate_number",
+   "fieldtype": "Data",
+   "label": "Gate Number",
+   "fetch_from": "flight.gate_number",
+   "read_only": 1,
+   "allow_on_submit": 1
   }
  ],
  "grid_page_length": 50,
@@ -162,7 +171,7 @@
  "is_submittable": 1,
  "link_display_mode": "Search",
  "links": [],
- "modified": "2026-11-21 00:47:30.519375",
+ "modified": "2026-11-22 12:30:16.311123",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",
